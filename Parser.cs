@@ -5,9 +5,9 @@ namespace k_mean_clustering
 {
     public static class Parser
     {
-        public static List<Vector> GetData(){
+        public static Dictionary<int, Vector> GetData(){
             //Parser
-            var list = new List<Vector>();
+            var list = new Dictionary<int, Vector>();
             var lines = System.IO.File.ReadAllLines(@"WineData.csv").Select(l => l.Split(",")).ToList();
 
             for (int i = 0; i < lines[0].Length; i++)
@@ -18,7 +18,7 @@ namespace k_mean_clustering
                 }                
                 
                 var vector = new Vector(values);
-                list.Add(vector);         
+                list.Add(i + 1, vector);         
             }
             return list;
         }

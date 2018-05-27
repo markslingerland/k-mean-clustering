@@ -9,7 +9,10 @@ namespace k_mean_clustering
     {
         static void Main(string[] args)
         {
-            var customers = 
+            var customers = Parser.GetData();
+
+            
+            
         }
     }
 }
