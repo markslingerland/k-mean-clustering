@@ -6,7 +6,7 @@ namespace k_mean_clustering.Algorithms
 {
     public static class KMeans
     {
-        public static void Clustering(int k, int iterations, Dictionary<int, Vector> data){
+        public static Tuple<List<Cluster>, double> Clustering(int k, int iterations, Dictionary<int, Vector> data){
             //Loop of K-Mean iterations
             var runs = new List<Tuple<List<Cluster>, double>>();
             for(var i = 0; i < iterations; i++){
@@ -36,6 +36,8 @@ namespace k_mean_clustering.Algorithms
 
                 runs.Add(Tuple.Create(clusters, SSE(clusters)));
             }
+
+            return runs.OrderBy(c => c.Item2).First();
         }
 
         private static void Step (Dictionary<int, Vector> data, List<Cluster> clusters){
