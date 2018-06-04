@@ -8,13 +8,13 @@ namespace k_mean_clustering
         public static Dictionary<int, Vector> GetData(){
             //Parser
             var list = new Dictionary<int, Vector>();
-            var lines = System.IO.File.ReadAllLines(@"WineData.csv").Select(l => l.Split(",")).ToList();
+            var lines = System.IO.File.ReadAllLines(@"WineData.csv").Select(l => l.Split(",").Select(i => double.Parse(i)).ToList()).ToList();
 
-            for (int i = 0; i < lines[0].Length; i++)
+            for (int i = 0; i < lines[0].Count; i++)
             {
-                var values = new List<float>();
+                var values = new List<double>();
                 foreach(var line in lines){
-                    values.Add(float.Parse(line[i]));
+                    values.Add(line[i]);
                 }                
                 
                 var vector = new Vector(values);

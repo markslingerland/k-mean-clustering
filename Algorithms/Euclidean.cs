@@ -13,8 +13,6 @@ namespace k_mean_clustering.Algorithms
                 result += Math.Pow((user1.Points[i] - user2.Points[i]),2);
             }
 
-            result = 1 / (1 + Math.Sqrt(result));
-
             return result;
         }
     }

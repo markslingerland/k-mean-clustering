@@ -10,8 +10,8 @@ namespace k_mean_clustering
         static void Main(string[] args)
         {
             var customers = Parser.GetData();
-            var centroids = Algorithms.KMeans.Clustering(5, 0, customers);
-            var h = 0;
+            Algorithms.KMeans.Clustering(5, 5, customers);
+            var debug = 0;
         }
     }
 }

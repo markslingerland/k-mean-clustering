@@ -4,12 +4,12 @@ namespace k_mean_clustering
 {
    public class Vector
     {
-        public Vector(List<float> points)
+        public Vector(List<double> points)
         {
             Points = points;
         }
 
-        public List<float> Points { get; set; }
+        public List<double> Points { get; set; }
         public double? Distance { get; set; }        
     }
 }
